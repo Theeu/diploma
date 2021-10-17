@@ -1,0 +1,36 @@
+from flask import Flask, render_template, json, request
+import mysql.connector
+
+app = Flask(__name__)
+
+mydb = mysql.connector.connect (
+    host = '172.23.130.20',
+    port = '3306',
+    user = 'devops',
+    password = 'P@ssw0rd!',
+    database = 'cbr',
+    auth_plugin='mysql_native_password'
+    )
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM ValCurs")
+
+myresult = mycursor.fetchall() 
+
+
+
+@app.route("/")
+def main():
+
+   return render_template('index.html', myresult=data)
+
+
+#if __name__ == "__main__":
+#    app.run()
+
+
+
+#@app.route('/')
+#def index():
+#    return render_template('index.html')

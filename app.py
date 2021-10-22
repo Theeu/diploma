@@ -2,8 +2,8 @@ from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 from flaskext.mysql import MySQL
 mysql = MySQL()
-app.config['MYSQL_DATABASE_USER'] = 'devops'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'P@ssw0rd!'
+app.config['MYSQL_DATABASE_USER'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'cbr'
 app.config['MYSQL_DATABASE_HOST'] = '172.23.130.20'
 mysql.init_app(app)
